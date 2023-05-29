@@ -9,6 +9,11 @@ public class Media extends JFrame{
     private JTextField textMedia;
     private JTextField textSituacao;
     public JPanel formMedia;
+    private JButton CALCULARSUBButton;
+    private JTextField textNotaSub;
+    private JComboBox comboBox1;
+    private JTextField textMediaSub;
+    private JTextField textSituacaoSub;
 
     public JTextField getTextPrimeira() {
         return textPrimeira;
@@ -49,5 +54,30 @@ public class Media extends JFrame{
             }
         }
     });
-}
+        CALCULARSUBButton.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                if (comboBox1.getSelectedIndex() == 0) {
+                    Double mediaSub = (Double.valueOf(textNotaSub.getText()) + Double.valueOf(getTextSegunda().getText())) / 2;
+                    textMediaSub.setText(mediaSub.toString());
+                    if (mediaSub >= 7d) {
+                        textSituacaoSub.setText("Aprovado");
+                    } else {
+                        textSituacaoSub.setText("Reprovado");
+                    }
+                }
+                    else if (comboBox1.getSelectedIndex() == 1) {
+                        Double mediaSub = (Double.valueOf(textNotaSub.getText()) + Double.valueOf(getTextPrimeira().getText())) / 2;
+                        textMediaSub.setText(mediaSub.toString());
+                        if (mediaSub >= 7d) {
+                            textSituacaoSub.setText("Aprovado");
+                        }
+                        else {
+                            textSituacaoSub.setText("Reprovado");
+                        }
+                    }
+                
+            }
+        });
+    }
 }

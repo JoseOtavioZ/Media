@@ -7,10 +7,5 @@ public class Main {
         form.setTitle("Calculadora de media");
 
 
-        Sub formS = new Sub();
-        formS.setContentPane(form.formSub);
-        formS.setVisible(true);
-        formS.setSize(500, 500);
-        formS.setTitle("Informe sua Sub");
     }
 }
